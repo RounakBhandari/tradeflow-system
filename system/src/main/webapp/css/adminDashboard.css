@@ -1,0 +1,166 @@
+@charset "UTF-8";
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: rgb(244, 246, 249);
+}
+.main-container{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+.left-nav{
+    width: 260px;
+    background-color: rgb(235, 238, 242);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 20px;
+    font-weight: bold;
+    color: rgb(30, 58, 138);
+}
+.logo img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.nav-links{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.nav-link{
+    padding: 12px 20px;
+}
+.nav-link a{
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+    font-size: 0.9rem;
+}
+.linkSelected{
+    border-left: 4px solid rgb(30, 58, 138);
+    background-color: white;
+}
+.userProfile{
+    margin-top: auto;
+    padding: 20px;
+}
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(220, 224, 230);
+    padding: 10px;
+    border-radius: 30px;
+}
+.profile img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.profileDetails{
+    display: flex;
+    flex-direction: column;
+}
+.userName{
+    font-size: 0.9rem;
+    color: rgb(30, 58, 138);
+}
+.userRole{
+    font-size: 0.7rem;
+}
+.logoutBtn{
+    margin-top: 15px;
+    border: none;
+    background: none;
+    font-size: 0.8rem;
+    color: gray;
+}
+.right-container{
+    flex: 1;
+    padding: 30px;
+}
+.title{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.cards{
+    display: flex;
+    gap: 20px;
+}
+.card{
+    flex: 1;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: gray;
+    box-shadow: 0px 0px 2px rgba(0,0,0,0.1);
+}
+.section{
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+.section-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.section-title{
+    font-size: 1rem;
+}
+.view-btn{
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    background-color: rgb(240, 240, 240);
+}
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table th{
+    text-align: left;
+    font-size: 0.75rem;
+    color: gray;
+    padding-bottom: 10px;
+}
+.table td{
+    font-size: 0.8rem;
+    padding: 10px 0;
+}
+.status{
+    background-color: rgb(255, 235, 200);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+}
+.actions{
+    display: flex;
+    gap: 10px;
+}
+.action-btn{
+    border: none;
+    background: none;
+    font-size: 1rem;
+}
+.inventory{
+    margin-top: 30px;
+    background-color: white;
+    height: 250px;
+    border-radius: 10px;
+    padding: 20px;
+}

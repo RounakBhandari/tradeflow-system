@@ -1,0 +1,222 @@
+@charset "UTF-8";
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle at top left, #2a4a6a, #0B2A4A 65%, #081f36);
+    font-family: 'Inter', sans-serif;
+}
+
+.intro-card {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 1290px;
+    height: 670px;
+    padding: 40px;
+}
+
+.main-pages {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 60px;
+    padding-left: 30px;
+}
+
+.main-pages a {
+    text-decoration: none;
+    color: #646d77;
+    font-size: 17px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+}
+
+.sys-functions {
+    margin-left: auto;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+/* ── NAV TABS (smooth pill switcher) ── */
+.nav-tabs {
+    display: flex;
+    align-items: center;
+    background: #eef2ff;
+    border-radius: 22px;
+    padding: 4px;
+    gap: 4px;
+}
+
+.nav-tab {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4F8CFF;
+    padding: 7px 20px;
+    border-radius: 18px;
+    
+}
+
+.nav-tab:hover {
+    background: rgba(79, 140, 255, 0.12);
+}
+
+.nav-tab.active {
+    background: #14B8A6;
+    color: #fff;
+}
+
+
+
+
+.left-content {
+    position: absolute;
+    left: 80px;
+    top: 180px;
+}
+
+.badge {
+  position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #e8ecff;
+    color: #7C9EFF;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    background: #7C9EFF;
+    border-radius: 50%;
+}
+
+.welcome-message h2 {
+    font-size: 32px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0px;
+}
+
+.welcome-message span {
+    color: #4F8CFF;
+}
+
+.welcome-message p {
+  margin-top: 0;
+    color: #666;
+    font-size: 15px;
+    max-width: 320px;
+}
+
+/* REGISTER FORM */
+.register-form {
+    position: absolute;
+    top: 50%;
+    right: 60px;
+    transform: translateY(-50%);
+    width: 420px;
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid rgba(40, 143, 233, 0.1);
+    box-shadow: 0 4px 12px rgba(46, 156, 220, 0.1);
+}
+
+.register-form h2 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 5px;
+}
+
+.sub-text {
+  margin-top: 0;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* FORM */
+.form-grid {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-group.full {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.input-group input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.input-group input:focus {
+    border-color: #4F8CFF;
+}
+
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #4F8CFF;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3A6FD9;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+}
+
+.illustration {
+    position: absolute;
+    left: 100px;
+    top: 150px;
+    width: 420px;
+    height: 400px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
+}

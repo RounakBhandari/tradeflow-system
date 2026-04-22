@@ -28,4 +28,24 @@ public class LoginService {
 		}
 		return false;
 	}
+	
+	public String getUserRole(String email) {
+		String role = null;
+		try {
+			Connection dbcon = DBConfig.getConnection();
+			
+			String query = "SELECT role FROM users WHERE email = ?";
+			PreparedStatement pst = dbcon.prepareStatement(query);
+			pst.setString(1, email);
+			ResultSet rs = pst.executeQuery();
+			
+			if(rs.next()) {
+				role = rs.getString("role");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return role;
+	}
+
 }

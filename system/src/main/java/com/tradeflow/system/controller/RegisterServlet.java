@@ -53,6 +53,7 @@ public class RegisterServlet extends HttpServlet {
 			String confirmPassword = request.getParameter("confirm_password");
 			String role = "salesperson";
 			
+			
 			if (!password.equals(confirmPassword)) {
 				    request.getRequestDispatcher("/WEB-INF/pages/Register.jsp").forward(request, response);
 				    return;

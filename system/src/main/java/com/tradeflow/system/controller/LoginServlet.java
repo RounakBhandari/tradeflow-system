@@ -56,16 +56,16 @@ public class LoginServlet extends HttpServlet {
 		Boolean status = loginService.loginUser(user);
 		
 		if(Boolean.TRUE.equals(status)) {
+			String role = loginService.getUserRole(email);
 			SessionUtil.setAttribute(request, "email", email);
-			if ("admin".equalsIgnoreCase(email)) {
-                CookieUtil.addCookie(response, "role", "admin", 60 * 60);
+			CookieUtil.addCookie(response, "role", role, 60 * 60);
+			if ("admin".equalsIgnoreCase(role)) {
                 response.sendRedirect(request.getContextPath() + "/admin/dashboard");
-            } else if("salesperson".equalsIgnoreCase(email)){
-                CookieUtil.addCookie(response, "role", "salesperson", 60 * 60);
+            } 
+			else if("salesperson".equalsIgnoreCase(role)){              
                 response.sendRedirect(request.getContextPath() + "/salesperson/dashboard");
             }
             else {
-            	CookieUtil.addCookie(response, "role", "retailer", 60*60);
             	response.sendRedirect(request.getContextPath() + "/retailer/dashboard");
             }
 		}

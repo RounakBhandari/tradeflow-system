@@ -27,8 +27,9 @@
 
         <div class="sys-functions">
             <div class="nav-tabs">
-                <a href="Login.html" class="nav-tab active">Login</a>
-                <a href="Register.html" class="nav-tab">Register</a>
+                <a href="<%=request.getContextPath()%>/login" class="nav-tab active">Login</a>
+                <a href="<%=request.getContextPath()%>/register" class="nav-tab ">Register</a>
+
             </div>
         </div>
     </nav>

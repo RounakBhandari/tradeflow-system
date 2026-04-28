@@ -120,18 +120,20 @@ body {
 
 /* REGISTER FORM */
 .register-form {
-    position: absolute;
-    top: 50%;
-    right: 60px;
-    transform: translateY(-50%);
+  position: absolute;
+    top: 90px;   
+    right: 20px;   
     width: 420px;
     padding: 35px;
     border-radius: 20px;
     border: 1px solid rgba(40, 143, 233, 0.1);
     box-shadow: 0 4px 12px rgba(46, 156, 220, 0.1);
+   
 }
 
+
 .register-form h2 {
+	margin-top:-10px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 5px;
@@ -179,8 +181,36 @@ body {
     border-color: #4F8CFF;
 }
 
+.role-row {
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+}
 
-button {
+.role-row label {
+    font-size: 14px;
+    min-width: 70px; /* keeps label aligned */
+}
+
+.role-row select {
+    flex: 1;
+    margin-left:-22px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+}
+
+.role-row select:focus {
+    border-color: #4F8CFF;
+    outline: none;
+}
+
+
+.register{
     width: 100%;
     padding: 12px;
     border: none;
@@ -191,7 +221,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.register:hover {
     background: #3A6FD9;
 }
 

@@ -8,16 +8,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class AdminDashboardServlet
+ * Servlet implementation class AdminRetailers
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/admin/dashboard" })
-public class AdminDashboardServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/admin/retailers" })
+public class AdminRetailers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminDashboardServlet() {
+    public AdminRetailers() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,12 +27,12 @@ public class AdminDashboardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/pages/admin/Dashboard.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/pages/admin/Retailers.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */ 
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

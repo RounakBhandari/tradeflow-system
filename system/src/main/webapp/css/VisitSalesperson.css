@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+.main-container{
+    display:flex;
+    height:100vh;
+}
+
+/* LEFT NAV */
+.left-nav{
+    width:240px;
+    background:#eef2f7;
+    display:flex;
+    flex-direction:column;
+}
+
+.logo{
+    padding:20px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    flex-direction:column;
+}
+
+.nav-link{
+    padding:15px;
+}
+
+.nav-link a{
+    text-decoration:none;
+    color:#1e3a8a;
+}
+
+.linkSelected{
+    border-left:5px solid #1e3a8a;
+    background:#fff;
+}
+
+/* RIGHT */
+.right-container{
+    flex:1;
+    padding:20px;
+}
+
+/* TOP */
+.top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+/* BUTTON */
+.add-btn{
+    margin-bottom:10px;
+    padding:8px 14px;
+    border:none;
+    background:#1e3a8a;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* TABLE */
+.table-container{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+
+th, td{
+    padding:10px;
+    text-align:left;
+    font-size:0.9rem;
+}
+
+th{
+    color:#666;
+}
+
+tr{
+    border-bottom:1px solid #eee;
+}
+
+/* COLUMN WIDTHS */
+th:nth-child(1), td:nth-child(1){ width:8%; }
+th:nth-child(2), td:nth-child(2){ width:40%; }
+th:nth-child(3), td:nth-child(3){ width:15%; }
+th:nth-child(4), td:nth-child(4){ width:25%; }
+th:nth-child(5), td:nth-child(5){ width:12%; }
+
+/* INPUTS */
+td select{
+    width:100%;
+}
+
+td input[type="number"]{
+    width:60%;
+}
+
+td input, td select{
+    max-width:100%;
+    padding:6px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+/* BUTTONS */
+.order-btn{
+    padding:6px 10px;
+    border:none;
+    background:#e0ecff;
+    color:#1e3a8a;
+    border-radius:6px;
+    cursor:pointer;
+}
+.payment-box{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Amount input bigger */
+.payment-box input{
+    flex: 3;
+}
+
+/* Mode dropdown smaller */
+.payment-box select{
+    flex: 1;
+}
+.confirm-btn{
+    border:none;
+    padding:6px 10px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.approve{
+    background:#d1fae5;
+}
+
+.reject{
+    background:#fee2e2;
+}
+
+
+/* EMPTY MSG */
+#emptyMsg{
+    margin-top:10px;
+    color:#888;
+}

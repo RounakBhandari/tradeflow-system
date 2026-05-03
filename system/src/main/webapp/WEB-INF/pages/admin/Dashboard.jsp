@@ -20,9 +20,9 @@
 
         <div class="nav-links">
             <div class="nav-link linkSelected"><a href="#">Dashboard</a></div>
-            <div class="nav-link"><a href="#">Inventory</a></div>
-            <div class="nav-link"><a href="#">Order Approvals</a></div>
-            <div class="nav-link"><a href="#">Retailers</a></div>
+            <div class="nav-link"><a href="<%=request.getContextPath()%>/admin/inventory">Inventory</a></div>
+            <div class="nav-link"><a href="<%=request.getContextPath()%>/admin/orderApprovals">Order Approvals</a></div>
+            <div class="nav-link"><a href="<%=request.getContextPath()%>/admin/retailers">Retailers</a></div>
         </div>
 
         <div class="userProfile">

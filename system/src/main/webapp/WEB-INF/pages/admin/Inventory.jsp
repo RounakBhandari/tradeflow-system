@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/leftNav.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/adminInventory.css">
 </head>
 <body>
 <div class="main-container">
-    
     <div class="left-nav">
         <div class="logo">
             <img src="">
@@ -36,11 +36,42 @@
     </div>
 
     <div class="right-container">
-        
-       
+
+      <div class="top">
+        <div class="navDisplay">
+            <p>Admin > Inventory</p>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="header">
+            <h3>Inventory Overview</h3>
+            <div class="filterCategory">
+                <p>Filter by Category</p>
+            </div>
+        </div>
+        <div class="inventoryCards">
+            <div class="card">
+                <div class="cardInfo">
+                        <p>Product Name</p>
+                        <p>Product Details</p>
+                </div>
+                <div class="stockInfo">
+                    <div>
+                        <p>Available Stock</p>
+                        <p>420 Pieces</p>
+                    </div>
+                    <div>
+                        <span class="stockStatus">Healthy</span>
+                        <button class="restockBtn">Restock Now</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+      </div>
+
     </div>
 
 </div>
-
 </body>
 </html>

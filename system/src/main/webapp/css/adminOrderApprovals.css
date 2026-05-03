@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+.right-container{
+    flex: 1;
+    padding: 30px;
+}
+
+.top{
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+.navDisplay{
+    font-size: 0.8rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(158, 158, 158);
+    font-weight: bold;
+    letter-spacing: 0.1cap;
+    word-spacing: 1cap;
+}
+.orderQueue{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 20px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
+    padding-bottom: 10px;
+    max-height: 90%;
+
+    
+}
+.orderQueue .header{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.queueTable thead,
+.queueTable tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.queueTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.queueTable tbody {
+    display: block;
+    max-height: 400px; 
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.queueTable thead th {
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+    padding: 12px 10px;
+    font-weight: 600;
+}
+
+.queueTable td {
+    padding: 14px 10px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+.queueTable a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+}
+.queueTable a:hover {
+    text-decoration: underline;
+}
+
+.status {
+    background: #ffcc5f;
+    color: #552600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.queueTable td:last-child{
+    display: flex;
+    justify-content: space-evenly;
+}
+.queueTable button {
+    border: none;
+    padding: 6px 12px;
+    margin-right: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.approve {
+    background-color: #a4fdc3;
+    color: #026a28;
+}
+
+.reject {
+    background: #feacac;
+    color: #7b0202;
+}

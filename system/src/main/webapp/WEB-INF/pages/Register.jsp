@@ -21,9 +21,9 @@
             </div>
         </a>
 
-<a href="Home.html">Home</a>
-    <a href="Contact.html">Contact</a>
-        <a href="About.html">About Us</a>
+ <a href="<%=request.getContextPath()%>/home">Home</a>
+        <a href="<%=request.getContextPath()%>/contactUs">Contact Us</a>
+        <a href="<%=request.getContextPath()%>/aboutUs">About Us</a>
 
         <div class="sys-functions">
             <div class="nav-tabs">

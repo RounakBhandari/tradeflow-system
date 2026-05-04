@@ -2,6 +2,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page isELIgnored="false" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,8 +46,11 @@
             <p>Admin > Inventory</p>
         </div>
         <div class="addProduct">
-        	<button class="addProductBtn">Add New Product</button>
+        	<a href="<%=request.getContextPath()%>/admin/addProduct">
+    			<button class="addProductBtn">Add New Product</button>
+			</a>
         </div>
+        
       </div>
       <div class="bottom">
         <div class="header">
@@ -54,34 +59,48 @@
                 <p>Filter by Category</p>
             </div>
         </div>
-        <div class="inventoryCards">
-        <%
-        	List<ProductModel> products = (List<ProductModel>) request.getAttribute("productList");
-        	if(products != null){
-        		for (ProductModel p: products){
-        %>
+<div class="inventoryCards">
+
+    <c:if test="${not empty productList}">
+        <c:forEach var="p" items="${productList}">
+            
             <div class="card">
                 <div class="cardInfo">
-                        <p><%= p.getProductName() %>></p>
-                        <p><%= p.getCategory() %></p>
+                    <p>${p.productName}</p>
+                    <p>${p.category}</p>
                 </div>
+
                 <div class="stockInfo">
                     <div>
                         <p>Available Stock</p>
-                        <p><%= p.getStockQuantity() %> Pieces</p>
+                        <p>${p.stockQuantity} Pieces</p>
                     </div>
+
                     <div>
-                        <span class="stockStatus"><% if(p.getStockQuantity()>50) {%>Healthy<%} else{ %>Critical<%} %></span>
+                        <span class="stockStatus">
+                            <c:choose>
+                                <c:when test="${p.stockQuantity > 50}">
+                                    Healthy
+                                </c:when>
+                                <c:otherwise>
+                                    Critical
+                                </c:otherwise>
+                            </c:choose>
+                        </span>
+
                         <button class="restockBtn">Restock Now</button>
+
+                        <a href="<%= request.getContextPath()%>/admin/deleteProduct?id=${p.productId}">
+                            <button>Delete</button>
+                        </a>
                     </div>
                 </div>
             </div>
-        <%
-            }
-        	}
-        %>	
-            
-        </div>
+
+        </c:forEach>
+    </c:if>
+
+</div>
       </div>
 
     </div>

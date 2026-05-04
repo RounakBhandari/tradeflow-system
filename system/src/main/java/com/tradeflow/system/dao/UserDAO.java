@@ -39,6 +39,7 @@ public class UserDAO {
 		
 		while(rs.next()) {
 			UserModel u = new UserModel();
+			u.setUserId(rs.getInt("user_id"));
 			u.setFirstName(rs.getString("first_name"));
 			u.setLastName(rs.getString("last_name"));
 			u.setEmail(rs.getString("email"));
@@ -52,4 +53,61 @@ public class UserDAO {
 		dbconn.close();
 		return users;
 	}
+	
+	public List<UserModel> getPendingUsers() {
+	    List<UserModel> users = new ArrayList<>();
+
+	    String sql = "SELECT * FROM users WHERE status = 'pending'";
+
+	    try (Connection conn = DBConfig.getConnection();
+	         PreparedStatement ps = conn.prepareStatement(sql);
+	         ResultSet rs = ps.executeQuery()) {
+
+	        while (rs.next()) {
+	            UserModel user = new UserModel();
+	            user.setUserId(rs.getInt("user_id"));
+	            user.setEmail(rs.getString("email"));
+	            user.setRole(rs.getString("role"));
+	            user.setStatus(rs.getString("status"));
+
+	            users.add(user);
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return users;
+	}
+	
+	public boolean approveUser(int userId) {
+	    String sql = "UPDATE users SET status = 'approved' WHERE user_id = ?";
+
+	    try (Connection conn = DBConfig.getConnection();
+	         PreparedStatement ps = conn.prepareStatement(sql)) {
+
+	        ps.setInt(1, userId);
+	        return ps.executeUpdate() > 0;
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return false;
+	}
+	
+	public boolean rejectUser(int userId) {
+	    String sql = "UPDATE users SET status = 'rejected' WHERE user_id = ?";
+
+	    try (Connection conn = DBConfig.getConnection();
+	         PreparedStatement ps = conn.prepareStatement(sql)) {
+
+	        ps.setInt(1, userId);
+	        return ps.executeUpdate() > 0;
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return false;
+	}
+	
 }

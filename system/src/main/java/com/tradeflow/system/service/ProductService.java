@@ -10,7 +10,11 @@ public class ProductService {
 	public void addProduct(String productName, String productBrand, String category, int price, int stockQuantity) throws Exception{
 		dao.addNewProduct(productName, productBrand, category, price, stockQuantity);
 	}
+
 	public List<ProductModel> getProducts() throws Exception{
 		return dao.getAllProducts();
+	}
+	public boolean deleteProduct(int productId) throws Exception {
+	    return dao.deleteProduct(productId);
 	}
 }

@@ -1,6 +1,7 @@
 package com.tradeflow.system.model;
 
 public class UserModel {
+	private int userId;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -9,6 +10,14 @@ public class UserModel {
 	private String imgPath;
 	private String role;
 	private String status;
+	
+	public int getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	
 	public String getFirstName() {
 		return firstName;

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,52 +60,50 @@
       <div class="form-grid">
                 <div class="input-group">
                     <label for="first_name" >First Name</label>
-                    <input type="text" placeholder="First Name" id="first_name" required>
+                    <input type="text" placeholder="First Name" id="first_name" name="first_name" required>
                 </div>
 
                 <div class="input-group">
                     <label for="last_name">Last Name</label>
-                    <input type="text" placeholder="Last Name" id="last_name" required>
+                    <input type="text" placeholder="Last Name" id="last_name" name="last_name" required>
                 </div>
             </div>
             <div class="form-grid">
                 <div class="input-group">
             <label for="email">Email</label>
-                    <input type="email" placeholder="Enter email" id="email" required>
+                    <input type="email" placeholder="Enter email" id="email" name="email" required>
         </div>
 
                 <div class="input-group">
          <label for="phone">Phone</label>
-                    <input type="tel" placeholder="Phone Number" id="phone" required>
+                    <input type="tel" placeholder="Phone Number" id="phone" name="phone"required>
                 </div>
             </div>
 
             <div class="form-grid">
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input type="password" placeholder="Password" id="password" required>
+                    <input type="password" placeholder="Password" id="password" name="password" required>
                 </div>
 
                 <div class="input-group">
                <label for="confirm_password">Confirm Password</label>
-                    <input type="password" placeholder="Confirm password" id="confirm_password" required>
-                	<% if (request.getAttribute("error") != null) { %>
-    					<p style="color:red;">
-        					<%= request.getAttribute("error") %>
-    					</p>
-					<% } %>
+                    <input type="password" placeholder="Confirm password" id="confirm_password" name="confirm_password" required>
+                	<c:if test="${not empty error}">
+    					<p style="color:red;">${error}</p>
+					</c:if>
                 </div>
             </div>
 
          <div class="input-group">
          	<label for="address">Address</label>
-         	<input type="text" placeholder="Enter Address" id="address" required>
+         	<input type="text" placeholder="Enter Address" id="address" name="address" required>
          </div>
          
     
       <div class="role-row">
     <label for="role">Role :</label>
-    <select name="roles" id="role" required>
+    <select name="role" id="role"  required>
         <option value="" disabled selected>Choose your role</option>
         <option value="salesperson">Sales Person</option>
         <option value="retailer">Retailer</option>
@@ -115,7 +114,7 @@
          
             <div class="input-group full">
                 <label>Upload Profile Image</label>
-                <input type="file" accept="image/*" id="profile_img"  required>
+                <input type="file" accept="image/*" id="profile_img" name="profile_img" required>
             </div>
 
             <button type="submit" class="register">Create Account</button>

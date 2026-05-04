@@ -9,7 +9,7 @@ import com.tradeflow.system.utils.DBConfig;
 import com.tradeflow.system.utils.PasswordUtil;
 
 public class LoginService {
-	public Boolean loginUser(UserModel userModel) {
+	public UserModel loginUser(UserModel userModel) {
 		String query = "SELECT email, password FROM users WHERE email = ?";
 		
 		try (Connection dbcon = DBConfig.getConnection();
@@ -20,13 +20,21 @@ public class LoginService {
 			
 			if(rs.next()) {
 				String storedPassword = rs.getString("password");
-				return PasswordUtil.checkPassword(userModel.getPassword(), storedPassword);
+				if(PasswordUtil.checkPassword(userModel.getPassword(), storedPassword)) {
+					UserModel user = new UserModel();
+					user.setUserId(rs.getInt("user_id"));
+					user.setEmail(rs.getString("email"));
+					user.setRole(rs.getString("role"));
+					user.setStatus(rs.getString("status"));
+					return user;
+				}
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null; 
+
 		}
-		return false;
+		return null;
 	}
 	
 	public String getUserRole(String email) {

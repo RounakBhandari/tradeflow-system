@@ -53,12 +53,19 @@ public class LoginServlet extends HttpServlet {
 		user.setEmail(email.trim());
 		user.setPassword(password.trim());
 		
-		Boolean status = loginService.loginUser(user);
+		UserModel userDb = new UserModel();
 		
-		if(Boolean.TRUE.equals(status)) {
-			String role = loginService.getUserRole(email);
+		
+		if(userDb != null) {
+			
+			if(!"approved".equalsIgnoreCase(userDb.getStatus())) {
+				request.setAttribute("error", "Your account is not approved yet.");
+	            request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
+	            return;
+			}
+			String role = userDb.getRole();
 			SessionUtil.setAttribute(request, "email", email);
-			CookieUtil.addCookie(response, "role", role, 60 * 60);
+			CookieUtil.addCookie(response, "role", role, 30 * 60);
 			if ("admin".equalsIgnoreCase(role)) {
                 response.sendRedirect(request.getContextPath() + "/admin/dashboard");
             } 
@@ -70,8 +77,8 @@ public class LoginServlet extends HttpServlet {
             }
 		}
 		else {
-			request.setAttribute("error", "Invalid username or password");
-			request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
+	        request.setAttribute("error", "Invalid username or password");
+	        request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
 		}
 	}
 

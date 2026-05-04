@@ -10,16 +10,16 @@ import java.io.IOException;
 import com.tradeflow.system.service.ProductService;
 
 /**
- * Servlet implementation class AdminAddProduct
+ * Servlet implementation class AdminDeleteProduct
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/admin/addProduct" })
-public class AdminAddProduct extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/admin/deleteProduct" })
+public class AdminDeleteProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminAddProduct() {
+    public AdminDeleteProduct() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +29,15 @@ public class AdminAddProduct extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/pages/admin/AddProduct.jsp").forward(request, response);
+		int productId = Integer.parseInt(request.getParameter("id"));
+		ProductService service = new ProductService();
+		try {
+			service.deleteProduct(productId);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		response.sendRedirect(request.getContextPath() + "/admin/inventory");
 	}
 
 	/**
@@ -37,20 +45,7 @@ public class AdminAddProduct extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		 String name = request.getParameter("productName");
-	        String brand = request.getParameter("productBrand");
-	        String category = request.getParameter("category");
-	        int price = Integer.parseInt(request.getParameter("price"));
-	        int stock = Integer.parseInt(request.getParameter("stockQuantity"));
-	        ProductService service = new ProductService();
-	        
-	        try {
-	            service.addProduct(name, brand, category, price, stock);  // 👈 METHOD CALL
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	        response.sendRedirect(request.getContextPath() + "/admin/inventory");
+		doGet(request, response);
 	}
 
 }

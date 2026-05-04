@@ -51,7 +51,8 @@ public class RegisterServlet extends HttpServlet {
 			String phone = request.getParameter("phone");
 			String password = request.getParameter("password");
 			String confirmPassword = request.getParameter("confirm_password");
-			String role = "salesperson";
+			String role = request.getParameter("role");
+			
 			
 			
 			if (!password.equals(confirmPassword)) {

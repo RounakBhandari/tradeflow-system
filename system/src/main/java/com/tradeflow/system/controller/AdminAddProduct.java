@@ -6,22 +6,18 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
-
-import com.tradeflow.system.model.ProductModel;
-import com.tradeflow.system.service.ProductService;
 
 /**
- * Servlet implementation class AdminInventory
+ * Servlet implementation class AdminAddProduct
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/admin/inventory" })
-public class AdminInventory extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/admin/addProduct" })
+public class AdminAddProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminInventory() {
+    public AdminAddProduct() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,16 +27,7 @@ public class AdminInventory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ProductService service = new ProductService();
-		try {
-			List<ProductModel> products = service.getProducts();
-			request.setAttribute("productList", products);
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		request.getRequestDispatcher("/WEB-INF/pages/admin/Inventory.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/pages/admin/AddProduct.jsp").forward(request, response);
 	}
 
 	/**

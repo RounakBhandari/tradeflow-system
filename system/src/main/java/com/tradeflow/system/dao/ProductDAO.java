@@ -15,10 +15,10 @@ public class ProductDAO {
 		
 		Connection dbconn = DBConfig.getConnection();
 		
-		String sqlQuery =  "INSERT INTO users (product_name, product_brand, category, price, stock_quantity) VALUES (?,?,?,?,?)";
+		String sqlQuery =  "INSERT INTO products (product_name, product_brand, category, price, stock_quantity) VALUES (?,?,?,?,?)";
 		PreparedStatement pst =  dbconn.prepareStatement(sqlQuery);
 		pst.setString(1, productName);
-		pst.setString(2, productName);
+		pst.setString(2, productBrand);
 		pst.setString(3, category);
 		pst.setInt(4, price);
 		pst.setInt(5, stockQuantity);

@@ -9,6 +9,7 @@
     height: 10%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .navDisplay{
     font-size: 0.8rem;
@@ -17,6 +18,20 @@
     font-weight: bold;
     letter-spacing: 0.1cap;
     word-spacing: 1cap;
+}
+
+.addProductBtn{
+	padding: 10px 15px;
+	border-radius: 12px;
+	background-color: #d6e6ff;
+	color: black;
+	border:none;
+
+}
+.addProductBtn:hover{
+	background-color:#0080c0;
+	color:white;
+	
 }
 .bottom{
     display: flex;

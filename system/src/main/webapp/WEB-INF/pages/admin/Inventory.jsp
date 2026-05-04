@@ -1,3 +1,5 @@
+<%@page import="com.tradeflow.system.model.ProductModel"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,6 +43,9 @@
         <div class="navDisplay">
             <p>Admin > Inventory</p>
         </div>
+        <div class="addProduct">
+        	<button class="addProductBtn">Add New Product</button>
+        </div>
       </div>
       <div class="bottom">
         <div class="header">
@@ -50,22 +55,31 @@
             </div>
         </div>
         <div class="inventoryCards">
+        <%
+        	List<ProductModel> products = (List<ProductModel>) request.getAttribute("productList");
+        	if(products != null){
+        		for (ProductModel p: products){
+        %>
             <div class="card">
                 <div class="cardInfo">
-                        <p>Product Name</p>
-                        <p>Product Details</p>
+                        <p><%= p.getProductName() %>></p>
+                        <p><%= p.getCategory() %></p>
                 </div>
                 <div class="stockInfo">
                     <div>
                         <p>Available Stock</p>
-                        <p>420 Pieces</p>
+                        <p><%= p.getStockQuantity() %> Pieces</p>
                     </div>
                     <div>
-                        <span class="stockStatus">Healthy</span>
+                        <span class="stockStatus"><% if(p.getStockQuantity()>50) {%>Healthy<%} else{ %>Critical<%} %></span>
                         <button class="restockBtn">Restock Now</button>
                     </div>
                 </div>
             </div>
+        <%
+            }
+        	}
+        %>	
             
         </div>
       </div>

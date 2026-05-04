@@ -27,8 +27,8 @@
 
         <div class="sys-functions">
             <div class="nav-tabs">
-                <a href="Login.html" class="nav-tab">Login</a>
-                <a href="Register.html" class="nav-tab active">Register</a>
+                <a href="<%=request.getContextPath()%>/login" class="nav-tab">Login</a>
+                <a href="<%=request.getContextPath()%>/" class="nav-tab active">Register</a>
             </div>
         </div>
  </nav>
@@ -58,36 +58,36 @@
         <form action="<%=request.getContextPath()%>/register" method="POST" enctype="multipart/form-data">
       <div class="form-grid">
                 <div class="input-group">
-                    <label>First Name</label>
-                    <input type="text" placeholder="First Name" name="first_name" required>
+                    <label for="first_name" >First Name</label>
+                    <input type="text" placeholder="First Name" id="first_name" required>
                 </div>
 
                 <div class="input-group">
-                    <label>Last Name</label>
-                    <input type="text" placeholder="Last Name" name="last_name" required>
+                    <label for="last_name">Last Name</label>
+                    <input type="text" placeholder="Last Name" id="last_name" required>
                 </div>
             </div>
             <div class="form-grid">
                 <div class="input-group">
-            <label>Email</label>
-                    <input type="email" placeholder="Enter email" name="email" required>
+            <label for="email">Email</label>
+                    <input type="email" placeholder="Enter email" id="email" required>
         </div>
 
                 <div class="input-group">
-         <label>Phone</label>
-                    <input type="tel" placeholder="Phone Number" name="phone" required>
+         <label for="phone">Phone</label>
+                    <input type="tel" placeholder="Phone Number" id="phone" required>
                 </div>
             </div>
 
             <div class="form-grid">
                 <div class="input-group">
-                    <label>Password</label>
-                    <input type="password" placeholder="Password" name="password" required>
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Password" id="password" required>
                 </div>
 
                 <div class="input-group">
-               <label>Confirm Password</label>
-                    <input type="password" placeholder="Repeat password" name="confirm_password" required>
+               <label for="confirm_password">Confirm Password</label>
+                    <input type="password" placeholder="Confirm password" id="confirm_password" required>
                 	<% if (request.getAttribute("error") != null) { %>
     					<p style="color:red;">
         					<%= request.getAttribute("error") %>
@@ -96,13 +96,29 @@
                 </div>
             </div>
 
-           
+         <div class="input-group">
+         	<label for="address">Address</label>
+         	<input type="text" placeholder="Enter Address" id="address" required>
+         </div>
+         
+    
+      <div class="role-row">
+    <label for="role">Role :</label>
+    <select name="roles" id="role" required>
+        <option value="" disabled selected>Choose your role</option>
+        <option value="salesperson">Sales Person</option>
+        <option value="retailer">Retailer</option>
+    </select>
+</div>         
+         
+         
+         
             <div class="input-group full">
                 <label>Upload Profile Image</label>
-                <input type="file" accept="image/*" name="profile_img"  required>
+                <input type="file" accept="image/*" id="profile_img"  required>
             </div>
 
-            <button type="submit">Create Account</button>
+            <button type="submit" class="register">Create Account</button>
 
         </form>
 

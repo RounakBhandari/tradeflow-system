@@ -1,110 +1,134 @@
-<%@page import="com.tradeflow.system.model.ProductModel"%>
-<%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ page isELIgnored="false" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/leftNav.css">
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/adminInventory.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeFlow - Sales Manager</title>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/AdminFunction.css">
 </head>
 <body>
-<div class="main-container">
-    <div class="left-nav">
-        <div class="logo">
-            <img src="">
-            <span>TradeFlow</span>
-        </div>
-
-        <div class="nav-links">
-            <div class="nav-link"><a href="<%=request.getContextPath()%>/admin/dashboard">Dashboard</a></div>
-            <div class="nav-link linkSelected"><a href="<%=request.getContextPath()%>/admin/inventory">Inventory</a></div>
-            <div class="nav-link"><a href="<%=request.getContextPath()%>/admin/orderApprovals">Order Approvals</a></div>
-            <div class="nav-link"><a href="<%=request.getContextPath()%>/admin/retailers">Retailers</a></div>
-        </div>
-
-        <div class="userProfile">
-            <div class="profile">
-                <img src="">
-                <div class="profileDetails">
-                    <span class="userName">Admin</span>
-                    <span class="userRole">Sales Manager</span>
+    <div class="main-container"> 
+        <div class="left-nav">
+            <div class="logo">
+                 <p>TradeFlow</p>
+            </div>
+            <div class="nav-links">
+                <div class="nav-link ">
+                    <a href="AdminDashboard.html">Dashboard</a>
+                </div>
+                <div class="nav-link linkSelected">
+                    <a href="#">Inventory</a>
+                </div>
+                <div class="nav-link">
+                    <a href="AdminOrder.html">Order Approvals</a>
+                </div>
+                <div class="nav-link">
+                    <a href="AdminUser.html">User Approvals</a>
+                </div>
+                <div class="nav-link">
+                    <a href="AdminTransaction.html">Transaction History</a>
                 </div>
             </div>
-            <button class="logoutBtn">Logout</button>
-        </div>
-    </div>
-
-    <div class="right-container">
-
-      <div class="top">
-        <div class="navDisplay">
-            <p>Admin > Inventory</p>
-        </div>
-        <div class="addProduct">
-        	<a href="<%=request.getContextPath()%>/admin/addProduct">
-    			<button class="addProductBtn">Add New Product</button>
-			</a>
-        </div>
-        
-      </div>
-      <div class="bottom">
-        <div class="header">
-            <h3>Inventory Overview</h3>
-            <div class="filterCategory">
-                <p>Filter by Category</p>
+            <div class="userProfile">
+                <div class="profile">
+                    <img src="profile.jpg" alt="Profile Picture">
+                    <div class="profileDetails">
+                        <span class="userName">Binishaan Basnet</span>
+                        <span class="userRole">Retailer</span>
+                    </div>
+                </div>
+                <button class="logoutBtn">Logout</button>
             </div>
         </div>
-<div class="inventoryCards">
+        <div class="inventory-content">
 
-    <c:if test="${not empty productList}">
-        <c:forEach var="p" items="${productList}">
+        <!-- HERO -->
+        <div class="inventory-hero">
+            <h1>Inventory Management</h1>
             
-            <div class="card">
-                <div class="cardInfo">
-                    <p>${p.productName}</p>
-                    <p>${p.category}</p>
-                </div>
+        </div>
 
-                <div class="stockInfo">
-                    <div>
-                        <p>Available Stock</p>
-                        <p>${p.stockQuantity} Pieces</p>
-                    </div>
+        <!-- CARDS -->
+        <div class="inventory-cards">
 
-                    <div>
-                        <span class="stockStatus">
-                            <c:choose>
-                                <c:when test="${p.stockQuantity > 50}">
-                                    Healthy
-                                </c:when>
-                                <c:otherwise>
-                                    Critical
-                                </c:otherwise>
-                            </c:choose>
-                        </span>
-
-                        <button class="restockBtn">Restock Now</button>
-
-                        <a href="<%= request.getContextPath()%>/admin/deleteProduct?id=${p.productId}">
-                            <button>Delete</button>
-                        </a>
-                    </div>
-                </div>
+            <div class="inventory-card">
+                <h2>1,245</h2>
+                <span>Total Products</span>
             </div>
 
-        </c:forEach>
-    </c:if>
+            <div class="inventory-card">
+                <h2>324</h2>
+                <span>Low Stock Items</span>
+            </div>
 
-</div>
-      </div>
+            <div class="inventory-card">
+                <h2>18</h2>
+                <span>Out of Stock</span>
+            </div>
+
+            <div class="inventory-card">
+                <h2>Rs. 8.2M</h2>
+                <span>Total Inventory Value</span>
+            </div>
+
+        </div>
+
+        <!-- TABLE -->
+        <div class="inventory-table-section">
+
+    <div class="inventory-table-header">
+
+        <h2 class="inventory-table-title">Inventory List</h2>
+
+        <div class="inventory-actions">
+
+            <input type="text" class="inventory-search" placeholder="Search products...">
+
+            <button class="add-product-btn">+ Add Product</button>
+
+        </div>
+
+    </div>
+
+    <table class="inventory-table">
+
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th>Supplier</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>#TRD1021</td>
+                        <td>Wireless Mouse</td>
+                        <td>Accessories</td>
+                        <td>120</td>
+                        <td><span class="stock-status stock-available">In Stock</span></td>
+                        <td>TechSource Pvt Ltd</td>
+                        <td><button class="inventory-btn">View</button></td>
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
 
     </div>
 
 </div>
+
+</body>
+</html>
+    </div>
 </body>
 </html>

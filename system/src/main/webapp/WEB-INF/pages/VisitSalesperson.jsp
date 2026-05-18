@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
 <meta charset="UTF-8">
 <title>Visit Management</title>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/VisitSalesperson.css">

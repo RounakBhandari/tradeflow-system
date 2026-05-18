@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="main-container">
-    <div class="left-nav">
+    <div class="left-nav"> 
         <div class="logo">
             <img src="">
             <span>TradeFlow</span>

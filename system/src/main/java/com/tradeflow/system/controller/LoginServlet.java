@@ -52,8 +52,8 @@ public class LoginServlet extends HttpServlet {
 		UserModel user = new UserModel();
 		user.setEmail(email.trim());
 		user.setPassword(password.trim());
-		
-		UserModel userDb = new UserModel();
+	
+		UserModel userDb = loginService.loginUser(user);
 		
 		
 		if(userDb != null) {
@@ -73,13 +73,16 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/salesperson/dashboard");
             }
             else {
-            	response.sendRedirect(request.getContextPath() + "/retailer/dashboard");
+            	request.setAttribute("error", "Invalid Role");
+            	request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
             }
 		}
+		
 		else {
 	        request.setAttribute("error", "Invalid username or password");
 	        request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
-		}
+		}	
 	}
 
 }
+	

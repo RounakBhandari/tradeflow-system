@@ -82,10 +82,7 @@
         <h3>Sales Person</h3>
         <p>Acts as a field agent who visits retailers, records interactions, collects payments, and places orders on their behalf to ensure smooth trade operations.</p>
     </div>
-     <div class="role-item">
-        <h3>Retailer</h3>
-        <p>Execute trades, analyze market data, and optimize trading strategies for maximum profitability.</p>
-    </div>
+
 </div>
 </div>
 <footer class="footer">

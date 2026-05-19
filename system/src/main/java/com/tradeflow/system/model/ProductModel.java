@@ -7,6 +7,7 @@ public class ProductModel {
 	private String category;
 	private int price;
 	private int stockQuantity;
+	private int minStockQuantity;
 	
 	public int getProductId() {
 		return productId;
@@ -43,6 +44,12 @@ public class ProductModel {
 	}
 	public void setStockQuantity(int stockQuantity) {
 		this.stockQuantity = stockQuantity;
+	}
+	public int getMinStockQuantity() {
+		return minStockQuantity;
+	}
+	public void setMinStockQuantity(int minStockQuantity) {
+		this.minStockQuantity = minStockQuantity;
 	}
 	
 	

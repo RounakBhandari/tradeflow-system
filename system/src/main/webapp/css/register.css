@@ -170,7 +170,7 @@ body {
     margin-bottom: 6px;
 }
 
-.input-group input {
+.input-group input{
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #ddd;
@@ -184,8 +184,10 @@ body {
 .role-row {
     align-items: center;
     margin-bottom: 10px;
-    margin-top: 10px;
+
     display: flex;
+    padding-top: 10px;
+
 }
 
 .role-row label {
@@ -193,7 +195,7 @@ body {
     min-width: 70px; /* keeps label aligned */
 }
 
-.role-row select {
+.role-row #role {
     flex: 1;
     margin-left:-22px;
     padding: 8px;
@@ -204,10 +206,7 @@ body {
     cursor: pointer;
 }
 
-.role-row select:focus {
-    border-color: #4F8CFF;
-    outline: none;
-}
+
 
 
 .register{

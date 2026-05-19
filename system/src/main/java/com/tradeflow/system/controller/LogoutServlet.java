@@ -8,16 +8,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class SalespersonDashboardServlet
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/salesperson/dashboard" })
-public class SalespersonDashboardServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/logout" })
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SalespersonDashboardServlet() {
+    public LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,9 @@ public class SalespersonDashboardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/pages//salesperson/SalespersonDashboard.jsp").forward(request, response);
+		request.getSession().invalidate();
+		
+		response.sendRedirect(request.getContextPath()+ "/login");
 	}
 
 	/**

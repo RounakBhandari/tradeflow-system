@@ -48,7 +48,7 @@
                 <span class="userRole">Sales Manager</span>
             </div>
         </div>
-        <button class="logoutBtn" onclick="location.href='<%=request.getContextPath()%>/login'">Logout</button>
+        <button class="logoutBtn" onclick="location.href='<%=request.getContextPath()%>/logout'">Logout</button>
     </div>
 </div>
 

@@ -99,17 +99,21 @@
          	<label for="address">Address</label>
          	<input type="text" placeholder="Enter Address" id="address" name="address" required>
          </div>
+         <div class="role-row">
+         	<label for="address">Role</label>
+         	<input type="text" id="role" placeholder="Sales Person" disabled>
+         </div>
          
-    
-      <div class="role-row">
+    <!-- 
+       <div class="role-row">
     <label for="role">Role :</label>
-    <select name="role" id="role"  required>
-        <option value="" disabled selected>Choose your role</option>
-        <option value="salesperson">Sales Person</option>
-        <option value="retailer">Retailer</option>
+    <select name="role" id="role" disabled required ="Sales person">
+        <option value="salesperson" disabled selected>Sales Person</option>
     </select>
-</div>         
+</div>     
          
+    -->
+   
          
          
             <div class="input-group full">

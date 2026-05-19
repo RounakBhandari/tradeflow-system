@@ -6,7 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TradeFlow - Add Product</title>
+        <title>TradeFlow - Update Product</title>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/topNav.css?v=2">
 
         <style>
@@ -219,8 +219,8 @@
         <div class="main-container">
             <div class="add-product-wrapper">
             <div class="form-header">
-                <h2>Add New Product</h2>
-                <p>Enter product details to instantly update your inventory.</p>
+                <h2>Update Product</h2>
+                <p>Modify product details to instantly update your inventory.</p>
             </div>
 
             <c:if test="${not empty error}">
@@ -230,54 +230,54 @@
                 </div>
             </c:if>
 
-            <form action="<%=request.getContextPath()%>/admin/addProduct" method="post">
+            <form action="<%=request.getContextPath()%>/admin/updateProduct" method="post">
                 <div class="form-grid">
 
                     <div class="form-group">
                         <label>Product ID</label>
-                        <input type="number" name="productId" placeholder="e.g. 1021" required>
+                        <input type="number" name="productId" value="${product.productId}" readonly required>
                     </div>
 
                     <div class="form-group">
                         <label>Status</label>
-                        <input type="text" value="In Stock" readonly>
+                        <input type="text" value="${product.stockQuantity == 0 ? 'Out of Stock' : (product.stockQuantity <= product.minStockQuantity ? 'Low Stock' : 'In Stock')}" readonly>
                     </div>
 
                     <div class="form-group full-width">
                         <label>Product Name</label>
-                        <input type="text" name="productName" placeholder="e.g. Wireless Mechanical Keyboard" value="${param.productName}" required>
+                        <input type="text" name="productName" placeholder="e.g. Wireless Mechanical Keyboard" value="${not empty param.productName ? param.productName : product.productName}" required>
                     </div>
 
                     <div class="form-group">
                         <label>Brand</label>
-                        <input type="text" name="productBrand" placeholder="e.g. Keychron" value="${param.productBrand}" required>
+                        <input type="text" name="productBrand" placeholder="e.g. Keychron" value="${not empty param.productBrand ? param.productBrand : product.productBrand}" required>
                     </div>
 
                     <div class="form-group">
                         <label>Category</label>
-                        <input type="text" name="category" placeholder="e.g. Electronics" value="${param.category}" required>
+                        <input type="text" name="category" placeholder="e.g. Electronics" value="${not empty param.category ? param.category : product.category}" required>
                     </div>
 
                     <div class="form-group">
                         <label>Price (Rs)</label>
-                        <input type="number" name="price" placeholder="0" min="0" value="${param.price}" required>
+                        <input type="number" name="price" placeholder="0" min="0" value="${not empty param.price ? param.price : product.price}" required>
                     </div>
 
                     <div class="form-group">
                         <label>Stock Quantity</label>
-                        <input type="number" name="stockQuantity" placeholder="0" min="0" value="${param.stockQuantity}" required>
+                        <input type="number" name="stockQuantity" placeholder="0" min="0" value="${not empty param.stockQuantity ? param.stockQuantity : product.stockQuantity}" required>
                     </div>
 
                     <div class="form-group">
                         <label>Min Stock Alert Level</label>
-                        <input type="number" name="minStockQuantity" placeholder="e.g. 20" min="0" value="${param.minStockQuantity}" required>
+                        <input type="number" name="minStockQuantity" placeholder="e.g. 20" min="0" value="${not empty param.minStockQuantity ? param.minStockQuantity : product.minStockQuantity}" required>
                     </div>
 
                 </div>
 
                 <div class="button-group">
                     <a href="<%=request.getContextPath()%>/admin/inventory" class="btn btn-cancel">Cancel</a>
-                    <button type="submit" class="btn btn-submit">Save Product</button>
+                    <button type="submit" class="btn btn-submit">Update Product</button>
                 </div>
             </form>
         </div>

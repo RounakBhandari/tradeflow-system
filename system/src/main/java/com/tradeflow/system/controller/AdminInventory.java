@@ -36,6 +36,25 @@ public class AdminInventory extends HttpServlet {
 			List<ProductModel> products = service.getProducts();
 			request.setAttribute("productList", products);
 			
+			int totalProducts = 0;
+			int lowStockItems = 0;
+			int outOfStock = 0;
+			
+			if (products != null) {
+			    totalProducts = products.size();
+			    for (ProductModel p : products) {
+			        if (p.getStockQuantity() == 0) {
+			            outOfStock++;
+			        } else if (p.getStockQuantity() <= p.getMinStockQuantity()) {
+			            lowStockItems++;
+			        }
+			    }
+			}
+			
+			request.setAttribute("totalProducts", totalProducts);
+			request.setAttribute("lowStockItems", lowStockItems);
+			request.setAttribute("outOfStock", outOfStock);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

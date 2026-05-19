@@ -7,8 +7,8 @@ import com.tradeflow.system.model.ProductModel;
 
 public class ProductService {
 	ProductDAO dao = new ProductDAO();
-	public void addProduct(String productName, String productBrand, String category, int price, int stockQuantity) throws Exception{
-		dao.addNewProduct(productName, productBrand, category, price, stockQuantity);
+	public void addProduct(int productId, String productName, String productBrand, String category, int price, int stockQuantity, int minStockQuantity) throws Exception{
+		dao.addNewProduct(productId, productName, productBrand, category, price, stockQuantity, minStockQuantity);
 	}
 
 	public List<ProductModel> getProducts() throws Exception{
@@ -16,5 +16,13 @@ public class ProductService {
 	}
 	public boolean deleteProduct(int productId) throws Exception {
 	    return dao.deleteProduct(productId);
+	}
+
+	public ProductModel getProductById(int productId) throws Exception {
+		return dao.getProductById(productId);
+	}
+
+	public void updateProduct(int productId, String productName, String productBrand, String category, int price, int stockQuantity, int minStockQuantity) throws Exception {
+		dao.updateProduct(productId, productName, productBrand, category, price, stockQuantity, minStockQuantity);
 	}
 }

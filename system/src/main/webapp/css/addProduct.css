@@ -1,92 +1,165 @@
-@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-@charset "UTF-8";
-
-.right-container {
-    flex: 1;
-    padding: 30px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-
-.top {
-    height: 10%;
+body {
+    background: linear-gradient(135deg, #f0f4fd 0%, #d4e2f9 100%);
+    min-height: 100vh;
     display: flex;
+    justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-.navDisplay {
-    font-size: 0.8rem;
-    color: rgb(158, 158, 158);
-    font-weight: bold;
-    letter-spacing: 0.1cap;
-    word-spacing: 1cap;
+/* MAIN FORM WRAPPER */
+.add-product-wrapper {
+    background: #ffffff;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 24px;
+    padding: 40px 50px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0,0,0,0.02);
+    position: relative;
+    overflow: hidden;
 }
 
-.form-container {
-	
-    background-color: rgb(235, 235, 235);
-    padding: 30px;
-    border-radius: 20px;
-    width: 400px;
-    margin-top: 20px;
+/* TOP DECORATION */
+.add-product-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
 }
 
-
-.form-container h3 {
-    margin-bottom: 20px;
+.form-header {
+    margin-bottom: 35px;
+    text-align: center;
 }
+
+.form-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+}
+
+.form-header p {
+    font-size: 15px;
+    color: #64748b;
+    margin-top: 8px;
+}
+
+/* FORM GRID */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 25px;
+    margin-bottom: 30px;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
 }
 
 .form-group label {
     font-size: 14px;
-    margin-bottom: 5px;
-    color: #555;
+    font-weight: 500;
+    color: #334155;
+    margin-bottom: 8px;
+    margin-left: 2px;
 }
 
 .form-group input {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    background-color: #f8fafc;
+    font-size: 15px;
+    color: #0f172a;
+    transition: all 0.3s ease;
     outline: none;
-    background-color: #f5f7fa;
+}
+
+.form-group input::placeholder {
+    color: #94a3b8;
 }
 
 .form-group input:focus {
-    border-color: #0080c0;
+    border-color: #3b82f6;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 }
 
-
+/* BUTTONS */
 .button-group {
     display: flex;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 25px;
+    border-top: 1px solid #f1f5f9;
 }
 
-.submitBtn {
-    padding: 10px 15px;
-    border-radius: 10px;
-    border: none;
-    background-color: #d6e6ff;
+.btn {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
-.submitBtn:hover {
-    background-color: #0080c0;
+.btn-cancel {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+.btn-cancel:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
     color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
-.cancelBtn {
-    padding: 10px 15px;
-    border-radius: 10px;
-    border: none;
-    background-color: #eee;
-    cursor: pointer;
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
 }
 
-.cancelBtn:hover {
-    background-color: #ccc;
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+    .add-product-wrapper {
+        padding: 30px 20px;
+    }
 }

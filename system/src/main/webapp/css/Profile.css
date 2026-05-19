@@ -1,0 +1,105 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: #f4f7fc;
+    min-height: 100vh;
+    color: #271d1d;
+}
+
+/* MAIN LAYOUT */
+.main-container{
+    min-height: 100vh;
+}
+.profile-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+/* CARD */
+.profile-card{
+    width: 450px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.profile-card h2{
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+/* AVATAR */
+.avatar-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 10px;
+}
+
+.avatar{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.upload-btn{
+    padding: 8px 14px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* FORM */
+.profile-form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label{
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 5px;
+}
+
+.input-group input{
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    outline: none;
+}
+
+/* SAVE BUTTON */
+.save-btn{
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #16a34a;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.save-btn:hover{
+    background: #15803d;
+}

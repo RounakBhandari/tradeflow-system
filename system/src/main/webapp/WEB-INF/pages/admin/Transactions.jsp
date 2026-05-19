@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TradeFlow - User Approvals</title>
+<title>TradeFlow - Transaction History</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/topNav.css?v=2">
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/adminUsers.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/adminTransactions.css">
 </head>
 <body>
 <div class="main-container">
@@ -28,13 +28,13 @@
             <div class="nav-link">
                 <a href="<%=request.getContextPath()%>/admin/orderApprovals">Order Approvals</a>
             </div>
-            <div class="nav-link linkSelected">
+            <div class="nav-link">
                 <a href="<%=request.getContextPath()%>/admin/pendingUsers">User Approvals</a>
             </div>
             <div class="nav-link">
                 <a href="<%=request.getContextPath()%>/admin/retailers">Retailers</a>
             </div>
-            <div class="nav-link">
+            <div class="nav-link linkSelected">
                 <a href="<%=request.getContextPath()%>/admin/transactions">Transactions</a>
             </div>
         </div>
@@ -52,59 +52,81 @@
         <button class="logoutBtn" onclick="location.href='<%=request.getContextPath()%>/login'">Logout</button>
     </div>
 </div>
- <div class="user-content">
-          <h1>User Approvals</h1>
-        <div class="user-section">
+ <div class="transaction-content">
 
-            <div class="user-header">
-                <h2 class="user-title">User Approval Queue</h2>
+        <!-- HEADER -->
+        <div class="transaction-header">
+            <h1>Transaction History</h1>
+            <p>Select a retailer to view their payment records</p>
+        </div>
+
+        <!-- FILTERS -->
+        <div class="transaction-filters">
+
+            <input type="text" class="transaction-search" placeholder="Search retailer...">
+
+
+        </div>
+
+        <!-- CARDS -->
+        <div class="transaction-cards">
+
+            <div class="transaction-card">
+                <h2>Rs. 1,20,000</h2>
+                <span>Total Paid</span>
             </div>
 
-            <table class="user-table">
+            <div class="transaction-card">
+                <h2>Rs. 25,000</h2>
+                <span>Pending Amount</span>
+            </div>
+
+            <div class="transaction-card">
+                <h2>18</h2>
+                <span>Total Transactions</span>
+            </div>
+
+        </div>
+
+        <!-- TABLE -->
+        <div class="transaction-table-section">
+
+            <div class="section-header">
+                <h2 class="section-title">Payment Records</h2>
+                <a class="view-all" href="#">Export Data →</a>
+            </div>
+
+            <table class="table">
 
                 <thead>
                     <tr>
-                        <th>User ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
+                        <th>Txn ID</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Method</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th>Invoice</th>
                     </tr>
                 </thead>
 
                 <tbody>
 
                     <tr>
-                        <td>#U1001</td>
-                        <td>Rounak Bhandari</td>
-                        <td>rounak@email.com</td>
-                        <td>Retailer</td>
-
-                        <td>
-                            <span class="user-status user-pending">Pending</span>
-                        </td>
-
-                        <td class="user-actions">
-                            <span class="user-tick">✔</span>
-                            <span class="user-cross">✖</span>
-                        </td>
+                        <td>#TXN001</td>
+                        <td>2026-01-12</td>
+                        <td>Rs. 12,500</td>
+                        <td>Bank Transfer</td>
+                        <td><span class="status transit">Completed</span></td>
+                        <td><span class="txn-link">View</span></td>
                     </tr>
 
                     <tr>
-                        <td>#U1002</td>
-                        <td>Binishaan Basnet</td>
-                        <td>binishaan@email.com</td>
-                        <td>Retailer</td>
-
-                        <td>
-                            <span class="user-status user-pending">Pending</span>
-                        </td>
-
-                        <td class="user-actions">
-                            <span class="user-tick">✔</span>
-                            <span class="user-cross">✖</span>
-                        </td>
+                        <td>#TXN002</td>
+                        <td>2026-01-15</td>
+                        <td>Rs. 8,000</td>
+                        <td>Cash</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td><span class="txn-link">View</span></td>
                     </tr>
 
                 </tbody>
@@ -116,5 +138,6 @@
     </div>
 
 </div>
+
 </body>
 </html>

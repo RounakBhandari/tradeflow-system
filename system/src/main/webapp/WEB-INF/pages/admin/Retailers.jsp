@@ -4,11 +4,13 @@
 
     <head>
         <meta charset="UTF-8">
+        <title>TradeFlow - Retailers</title>
         <link rel="stylesheet" href="<%= request.getContextPath() %>/css/topNav.css?v=2">
+                <link rel="stylesheet" href="<%= request.getContextPath() %>/css/adminRetailers.css?v=2">
     </head>
 
     <body>
-
+ <div class="main-container">
         <div class="top-nav">
             <!-- LEFT -->
             <div class="nav-left">
@@ -32,7 +34,7 @@
                         <a href="<%=request.getContextPath()%>/admin/retailers">Retailers</a>
                     </div>
                     <div class="nav-link">
-                        <a href="#">Transactions</a>
+                        <a href="<%=request.getContextPath()%>/admin/transactions">Transactions</a>
                     </div>
                 </div>
             </div>
@@ -43,7 +45,7 @@
                     <img src="<%= request.getContextPath() %>/resources/logvector.jpeg" alt="Profile"
                         onerror="this.style.display='none'">
                     <div class="profileDetails">
-                        <span class="userName">Admin</span>
+                        <span class="userName profile"><a href="<%=request.getContextPath()%>/profile">Admin</a></span>
                         <span class="userRole">Sales Manager</span>
                     </div>
                 </div>
@@ -51,14 +53,71 @@
             </div>
         </div>
 
-        <div class="main-container">
+ <div class="content-container">
 
-            <div class="right-container">
+    <!-- HEADER -->
+    <div class="hero">
+        <h1>Retailers</h1>
+        <p>Manage and view all registered retailers</p>
+    </div>
 
+    <!-- TABLE SECTION -->
+    <div class="section">
 
-            </div>
-
+        <div class="section-header">
+            <h2 class="section-title">All Retailers</h2>
         </div>
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Joined Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>#R101</td>
+                    <td>Rounak Bhandari</td>
+                    <td>rounak@email.com</td>
+                    <td>9800000000</td>
+                    <td><span class="status transit">Active</span></td>
+                    <td>2026-01-10</td>
+                    <td>
+                        <button class="view">View</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>#R102</td>
+                    <td>Sujan Shrestha</td>
+                    <td>sujan@email.com</td>
+                    <td>9811111111</td>
+                    <td><span class="status transit">Active</span></td>
+                    <td>2026-02-15</td>
+                    <td>
+                        <button class="view">View</button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+ </div>      
+
+ 
 
     </body>
 

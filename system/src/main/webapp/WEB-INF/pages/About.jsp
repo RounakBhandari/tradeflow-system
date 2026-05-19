@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - TradeFlow</title>
    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/About.css">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
         <div class="navbar">
@@ -20,7 +21,7 @@
     </div>
 </div>
 <div class="hero">
-    <h1>Aboutx TradeFlow</h1>
+    <h1>About TradeFlow</h1>
     <p>Building a smarter way to manage trade operations between companies and retailers.</p>
 </div>
 <div class="container">
@@ -36,7 +37,7 @@
                  </p>
         </div>
 
-        <img src="ourmission.png" alt="mission">
+        <img src="<%= request.getContextPath() %>/resources/ourmission.png" alt="mission">
     </div>
 
 
@@ -48,7 +49,7 @@
                 </p>
         </div>
 
-        <img src="work.jpg" alt="work">
+        <img src="<%= request.getContextPath() %>/resources/work.jpg" alt="work">
     </div>
 
    
@@ -60,7 +61,7 @@
                    </p>
         </div>
 
-        <img src="Why.jpg" alt="why">
+        <img src="<%= request.getContextPath() %>/resources/Why.jpg" alt="why">
     </div>
 
 </div>
@@ -74,15 +75,15 @@
        
         <div class="footer-links">
             <h4>Quick Links</h4>
-            <a href="Home.html">Home</a>
-            <a href="About.html">About Us</a>
-            <a href="Contact.html">Contact Us</a>
+            <a href="<%= request.getContextPath() %>/home">Home</a>
+            <a href="<%= request.getContextPath() %>/aboutUs">About Us</a>
+            <a href="<%= request.getContextPath() %>/contactUs">Contact Us</a>
         </div>
 
         <div class="footer-links">
             <h4>Account</h4>
-            <a href="Login.html">Login</a>
-            <a href="Register.html">Register</a>
+            <a href="<%= request.getContextPath() %>/login">Login</a>
+            <a href="<%= request.getContextPath() %>/register">Register</a>
         </div>
 
     </div>
@@ -100,6 +101,5 @@
     </div>
 
 </footer>
-
 </body>
 </html>

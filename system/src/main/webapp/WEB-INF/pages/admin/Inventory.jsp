@@ -35,7 +35,7 @@
                             <a href="<%=request.getContextPath()%>/admin/retailers">Retailers</a>
                         </div>
                         <div class="nav-link">
-                            <a href="#">Transactions</a>
+                            <a href="<%=request.getContextPath()%>/admin/transactions">Transactions</a>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                     <div class="profile">
                         <img src="<%= request.getContextPath() %>/resources/logvector.jpeg" alt="Profile" onerror="this.style.display='none'">
                         <div class="profileDetails">
-                            <span class="userName">Admin</span>
+                            <span class="userName profile"><a href="<%=request.getContextPath()%>/profile">Admin</a></span>
                             <span class="userRole">Sales Manager</span>
                         </div>
                     </div>

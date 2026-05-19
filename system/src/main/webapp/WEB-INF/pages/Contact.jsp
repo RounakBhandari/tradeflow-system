@@ -54,15 +54,15 @@
        
         <div class="footer-links">
             <h4>Quick Links</h4>
-            <a href="Home.html">Home</a>
-            <a href="About.html">About Us</a>
-            <a href="Contact.html">Contact Us</a>
+            <a href="<%= request.getContextPath() %>/home">Home</a>
+            <a href="<%= request.getContextPath() %>/aboutUs">About Us</a>
+            <a href="<%= request.getContextPath() %>/contactUs">Contact Us</a>
         </div>
 
         <div class="footer-links">
             <h4>Account</h4>
-            <a href="Login.html">Login</a>
-            <a href="Register.html">Register</a>
+            <a href="<%= request.getContextPath() %>/login">Login</a>
+            <a href="<%= request.getContextPath() %>/register">Register</a>
         </div>
 
     </div>

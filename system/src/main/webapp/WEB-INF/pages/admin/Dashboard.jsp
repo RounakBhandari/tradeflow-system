@@ -1,15 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib uri="jakarta.tags.core" prefix="c" %>
+   <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/topNav.css?v=2">
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/adminDashboard.css">
-<title>Admin Dashboard</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/topNav.css?v=2">
+
+<title>TradeFlow - Dashboard</title>
 </head>
 <body>
+
+<div class="main-container"> 
 
 <div class="top-nav">
     <!-- LEFT -->
@@ -34,7 +39,7 @@
                 <a href="<%=request.getContextPath()%>/admin/retailers">Retailers</a>
             </div>
             <div class="nav-link">
-                <a href="#">Transactions</a>
+               <a href="<%=request.getContextPath()%>/admin/transactions">Transactions</a>
             </div>
         </div>
     </div>
@@ -44,76 +49,136 @@
         <div class="profile">
             <img src="<%= request.getContextPath() %>/resources/logvector.jpeg" alt="Profile" onerror="this.style.display='none'">
             <div class="profileDetails">
-                <span class="userName">Admin</span>
+                <span class="userName profile"><a href="<%=request.getContextPath()%>/profile">Admin</a></span>
                 <span class="userRole">Sales Manager</span>
             </div>
         </div>
         <button class="logoutBtn" onclick="location.href='<%=request.getContextPath()%>/logout'">Logout</button>
     </div>
 </div>
+<div class="content-container">
 
-<div class="main-container">
-    
-    <div class="right-container">
-        
-        <div class="title">Overview</div>
-
-        <div class="cards">
-            <div class="card">TOTAL REVENUE</div>
-            <div class="card">ORDER APPROVALS</div>
-            <div class="card">LOW STOCK ALERTS</div>
-            <div class="card">OUTSTANDING DUES</div>
+        <!-- HERO -->
+        <div class="hero">
+            <h1>Overview</h1>
+            <p>Welcome back! here's what's new!!</p>
         </div>
 
-        <div class="section">
-            <div class="section-header">
-                <div class="section-title">Order Approval Queue</div>
-                <button class="view-btn">View All</button>
+        <!-- OVERVIEW -->
+        <div class="overview">
+
+            <div class="ovwcard">
+    <h2>Rs. ${totalRevenue}</h2>
+    <span>Total Revenue</span>
+</div>
+
+<div class="ovwcard">
+    <h2>${pendingApprovals}</h2>
+    <span>Pending Approvals</span>
+</div>
+
+<div class="ovwcard">
+    <h2>${lowStockCount}</h2>
+    <span>Low Stock Alert</span>
+</div>
+
+<div class="ovwcard">
+    <h2>Rs. ${outstandingDues}</h2>
+    <span>Outstanding Dues</span>
+</div>
+
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="summary">
+
+            <!-- ORDER SECTION -->
+            <div class="section">
+
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                    <h2 class="section-title" style="margin:0;">Order Approval Queue</h2>
+                    <p style="margin:0; cursor:pointer;"><span class="profile"><a  href="<%=request.getContextPath()%>/admin/orderApprovals">View all Orders →</span></a></p>
+                </div>
+
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Retailer</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                       <c:forEach var="order" items="${recentOrders}">
+    <tr>
+        <td>#${order.orderId}</td>
+        <td>${order.date}</td>
+        <td>${order.retailerName}</td>
+        <td><span class="status">${order.status}</span></td>
+        <td class="action-icons">
+            <span class="tick">✔</span>
+            <span class="cross">✖</span>
+        </td>
+        <td><span style="cursor:pointer;">View Details</span></td>
+    </tr>
+</c:forEach>
+
+                    </tbody>
+
+                </table>
+
             </div>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>RETAILER</th>
-                        <th>ORDER ID</th>
-                        <th>VALUE</th>
-                        <th>STATUS</th>
-                        <th>ACTIONS</th>
-                    </tr>
-                </thead>
-                <tr>
-                    <td>Rounak Bhandari</td>
-                    <td>#ORD-9921</td>
-                    <td>Rs. 12,450.00</td>
-                    <td><span class="status">Review</span></td>
-                    <td>
-                        <div class="actions">
-                            <button class="action-btn">❌</button>
-                            <button class="action-btn">✔️</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Binishaan Basnet</td>
-                    <td>#ORD-9925</td>
-                    <td>Rs. 8,120.00</td>
-                    <td><span class="status">Review</span></td>
-                    <td>
-                        <div class="actions">
-                            <button class="action-btn">❌</button>
-                            <button class="action-btn">✔️</button>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
+            <!-- INVENTORY SECTION -->
+            <div class="section">
 
-        <div class="inventory">
-            <div class="section-title">Inventory</div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                    <h2 class="section-title" style="margin:0;">Inventory</h2>
+                    <p style="margin:0; cursor:pointer;"><span class="profile"><a  href="<%=request.getContextPath()%>/admin/inventory">View all Inventory →</span></a>
+                    </p>
+                </div>
+
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                           
+                            
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+<c:forEach var="product" items="${lowStockProducts}">
+    <tr>
+        <td>${product.productId}</td>
+        <td>${product.productName}</td>
+        <td>${product.category}</td>
+        <td>${product.stock}</td>
+        <td>${product.status}</td>
+    </tr>
+</c:forEach>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
         </div>
 
     </div>
-
 </div>
 
 </body>

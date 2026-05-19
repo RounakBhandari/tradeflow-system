@@ -35,14 +35,14 @@
                 Clarity meets complexity.
             </p>
 
-            <a href="Register.html" class="start-btn">
+            <a href="<%= request.getContextPath() %>/register" class="start-btn">
                 Get Started →
             </a>
         </div>
     </div>
 
     <div class="right-content">
-        <img src="Homeimg.jpg" alt="">
+        <img src="<%= request.getContextPath() %>/resources/Homeimg.jpg" alt="">
     </div>
 </div>
 <h2 class="hero">Core Features</h2>
@@ -72,18 +72,29 @@
             <p>Track and analyze visitor behavior to optimize your marketing strategies.</p>
         </div>
 </div>
-<h2 class="hero">User Roles</h2>
+<h2 class="hero"> User Roles</h2>
 <div class="roles">
+
     <div class="role-item">
+      
         <h3>Sales Manager</h3>
-        <p>Manage users, oversee system operations, and ensure smooth functioning of the platform.</p>
+        <p>
+            Manage users, oversee system operations, and ensure smooth
+            functioning of the platform with complete control and insights.
+        </p>
     </div>
+
     <div class="role-item">
+      
         <h3>Sales Person</h3>
-        <p>Acts as a field agent who visits retailers, records interactions, collects payments, and places orders on their behalf to ensure smooth trade operations.</p>
+        <p>
+            Acts as a field agent who visits retailers, records interactions,
+            collects payments, and places orders to ensure smooth trade operations.
+        </p>
     </div>
 
 </div>
+
 </div>
 <footer class="footer">
 
@@ -92,15 +103,15 @@
        
         <div class="footer-links">
             <h4>Quick Links</h4>
-            <a href="Home.html">Home</a>
-            <a href="About.html">About Us</a>
-            <a href="Contact.html">Contact Us</a>
+            <a href="<%= request.getContextPath() %>/home">Home</a>
+            <a href="<%= request.getContextPath() %>/aboutUs">About Us</a>
+            <a href="<%= request.getContextPath() %>/contactUs">Contact Us</a>
         </div>
 
         <div class="footer-links">
             <h4>Account</h4>
-            <a href="Login.html">Login</a>
-            <a href="Register.html">Register</a>
+            <a href="<%= request.getContextPath() %>/login">Login</a>
+            <a href="<%= request.getContextPath() %>/register">Register</a>
         </div>
 
     </div>

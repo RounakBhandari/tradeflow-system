@@ -37,7 +37,7 @@ public class AuthenticationFilter implements Filter{
         	return;
         }
         
-        boolean publicPage = path.equals("/login") || path.equals("/home") || path.equals("/about") || path.equals("/contact") || path.equals("/register");
+        boolean publicPage = path.equals("/login") || path.equals("/home") || path.equals("/aboutUs") || path.equals("/contactUs") || path.equals("/register");
         
         String email = (String) SessionUtil.getAttribute(req, "email");
         String role = (String) SessionUtil.getAttribute(req, "role");

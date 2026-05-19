@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +23,13 @@ public class AdminDashboardServlet extends HttpServlet {
             throws ServletException, IOException {
 
         request.setAttribute("lowStockProducts", dashboardDAO.getLowStockProducts(2));
-        request.setAttribute("recentOrders",     dashboardDAO.getRecentOrders(2));
+        try {
+			request.setAttribute("recentOrders",     dashboardDAO.getRecentOrders(2));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
         request.setAttribute("totalRevenue",     dashboardDAO.getTotalRevenue());
         request.setAttribute("pendingApprovals", dashboardDAO.getPendingApprovals());
         request.setAttribute("lowStockCount",    dashboardDAO.getLowStockCount());

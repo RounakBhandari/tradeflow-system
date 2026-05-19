@@ -10,7 +10,7 @@ import com.tradeflow.system.utils.PasswordUtil;
 
 public class LoginService {
 	public UserModel loginUser(UserModel userModel) {
-		String query = "SELECT user_id, email, password, role, status FROM users WHERE email = ?";
+		String query = "SELECT user_id, email, password, role, status, first_name, last_name, profile_pic FROM users WHERE email = ?";
 		
 		try (Connection dbcon = DBConfig.getConnection();
 				PreparedStatement pst = dbcon.prepareStatement(query)){
@@ -26,6 +26,9 @@ public class LoginService {
 					user.setEmail(rs.getString("email"));
 					user.setRole(rs.getString("role"));
 					user.setStatus(rs.getString("status"));
+					user.setFirstName(rs.getString("first_name"));
+					user.setLastName(rs.getString("last_name"));
+					user.setProfilePic(rs.getString("profile_pic"));
 					return user;
 				}
 

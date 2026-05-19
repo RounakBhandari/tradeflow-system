@@ -67,11 +67,11 @@ public class UserModel {
 		this.role = role;
 	}
 
-	public String getImgPath() {
+	public String getProfilePic() {
 		return imgPath;
 	}
 
-	public void setImgPath(String imgPath) {
+	public void setProfilePic(String imgPath) {
 		this.imgPath = imgPath;
 	}
 
@@ -82,6 +82,8 @@ public class UserModel {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	
 	
 	
 }

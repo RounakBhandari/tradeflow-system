@@ -151,6 +151,9 @@ body {
     cursor: pointer !important;
     transition: 0.3s ease !important;
     margin: 0 !important;
+    text-decoration:none;
+    color:inherit;
+    text-align: center;
 }
 
 .logoutBtn:hover {

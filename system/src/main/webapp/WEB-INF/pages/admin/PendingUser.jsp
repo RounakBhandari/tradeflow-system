@@ -42,14 +42,20 @@
 
     <!-- RIGHT -->
     <div class="nav-right">
-        <div class="profile">
-            <img src="<%= request.getContextPath() %>/resources/logvector.jpeg" alt="Profile" onerror="this.style.display='none'">
-            <div class="profileDetails">
-                <span class="userName profile"><a href="<%=request.getContextPath()%>/profile">Admin</a></span>
-                <span class="userRole">Sales Manager</span>
-            </div>
-        </div>
-        <button class="logoutBtn" onclick="location.href='<%=request.getContextPath()%>/login'">Logout</button>
+               <div class="profile">
+        <a href="<%=request.getContextPath()%>/profile">
+   <img src="<%= request.getContextPath() %>/${sessionScope.profilePic}"
+     alt="Profile" onerror="this.style.display='none'">
+    <div class="profileDetails">
+        <span class="userName profile">
+            
+                ${sessionScope.firstName}
+            </a>
+        </span>
+        <span class="userRole">${sessionScope.role}</span>
+    </div>
+</div>
+        <a class="logoutBtn" href="<%=request.getContextPath()%>/logout">Logout</a>
     </div>
 </div>
  <div class="user-content">

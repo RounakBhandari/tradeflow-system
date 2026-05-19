@@ -1,5 +1,8 @@
 package com.tradeflow.system.dao;
 
+import com.tradeflow.system.model.DashboardModel;
+import com.tradeflow.system.model.DashboardModel.OrderSummary;
+import com.tradeflow.system.model.DashboardModel.ProductSummary;
 import com.tradeflow.system.utils.DBConfig;
 
 import java.sql.Connection;
@@ -11,39 +14,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DashboardDAO {public List<Map<String, Object>> getRecentOrders(int limit) {
-    List<Map<String, Object>> list = new ArrayList<>();
 
-    String sql = "SELECT o.order_id, " +
-                 "DATE_FORMAT(o.order_date, '%Y-%m-%d') AS date, " +
-                 "CONCAT(u.first_name, ' ', u.last_name) AS retailer_name, " +
-                 "o.status " +
-                 "FROM orders o " +
-                 "JOIN users u ON o.retailer_id = u.user_id " +
-                 "WHERE o.status = 'pending' " +
-                 "ORDER BY o.order_date DESC LIMIT ?";
-
-    try (Connection conn = DBConfig.getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql)) {
-
-        ps.setInt(1, limit);
-        ResultSet rs = ps.executeQuery();
-
-        while (rs.next()) {
-            Map<String, Object> row = new HashMap<>();
-            row.put("orderId",      rs.getInt("order_id"));
-            row.put("date",         rs.getString("date"));
-            row.put("retailerName", rs.getString("retailer_name"));
-            row.put("status",       rs.getString("status"));
-            list.add(row);
-        }
-
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-
-    return list;
-}
+public class DashboardDAO {
+	
+	public List<OrderSummary> getRecentOrders(int limit) throws SQLException {
+	    String sql = """
+	            SELECT o.order_id,
+	                   DATE_FORMAT(o.order_date, '%Y-%m-%d') AS date,
+	                   r.shop_name AS retailer_name,
+	                   o.status
+	            FROM orders o
+	            JOIN retailers r ON o.retailer_id = r.retailer_id
+	            WHERE o.status = 'pending'
+	            ORDER BY o.order_date DESC
+	            LIMIT ?
+	            """;
+	    List<OrderSummary> list = new ArrayList<>();
+	    try (Connection conn = DBConfig.getConnection();
+	         PreparedStatement ps = conn.prepareStatement(sql)) {
+	        ps.setInt(1, limit);
+	        try (ResultSet rs = ps.executeQuery()) {
+	            while (rs.next()) {
+	                OrderSummary o = new OrderSummary();
+	                o.setOrderId(rs.getInt("order_id"));
+	                o.setDate(rs.getString("date"));
+	                o.setRetailerName(rs.getString("retailer_name"));
+	                o.setStatus(rs.getString("status"));
+	                list.add(o);
+	            }
+	        }
+	    }
+	    return list;
+	}
 	
 
     public List<Map<String, Object>> getLowStockProducts(int limit) {

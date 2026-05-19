@@ -42,14 +42,20 @@
 
     <!-- RIGHT -->
     <div class="nav-right">
-        <div class="profile">
-            <img src="<%= request.getContextPath() %>/resources/logvector.jpeg" alt="Profile" onerror="this.style.display='none'">
-            <div class="profileDetails">
-                <span class="userName profile"><a href="<%=request.getContextPath()%>/profile">Admin</a></span>
-                <span class="userRole">Sales Manager</span>
-            </div>
-        </div>
-        <button class="logoutBtn" onclick="location.href='<%=request.getContextPath()%>/login'">Logout</button>
+                <div class="profile">
+        <a href="<%=request.getContextPath()%>/profile">
+   <img src="<%= request.getContextPath() %>/${sessionScope.profilePic}"
+     alt="Profile" onerror="this.style.display='none'">
+    <div class="profileDetails">
+        <span class="userName profile">
+            
+                ${sessionScope.firstName}
+            </a>
+        </span>
+        <span class="userRole">${sessionScope.role}</span>
+    </div>
+</div>
+        <a class="logoutBtn" href="<%=request.getContextPath()%>/logout">Logout</a>
     </div>
 </div>
  <div class="transaction-content">
@@ -93,7 +99,7 @@
 
             <div class="section-header">
                 <h2 class="section-title">Payment Records</h2>
-                <a class="view-all" href="#">Export Data →</a>
+               
             </div>
 
             <table class="table">
@@ -104,7 +110,7 @@
                         <th>Date</th>
                         <th>Amount</th>
                         <th>Method</th>
-                        <th>Status</th>
+          
                         <th>Invoice</th>
                     </tr>
                 </thead>
@@ -116,7 +122,7 @@
                         <td>2026-01-12</td>
                         <td>Rs. 12,500</td>
                         <td>Bank Transfer</td>
-                        <td><span class="status transit">Completed</span></td>
+                        
                         <td><span class="txn-link">View</span></td>
                     </tr>
 
@@ -125,7 +131,7 @@
                         <td>2026-01-15</td>
                         <td>Rs. 8,000</td>
                         <td>Cash</td>
-                        <td><span class="status pending">Pending</span></td>
+                        
                         <td><span class="txn-link">View</span></td>
                     </tr>
 

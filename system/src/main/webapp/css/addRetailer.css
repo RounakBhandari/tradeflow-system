@@ -1,0 +1,165 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f4f7fc;
+    min-height: 100vh;
+    color: #271d1d;
+}
+
+.main-container { min-height: 100vh; }
+
+.content-container {
+    flex: 1;
+    padding: 30px;
+ 
+  
+}
+
+.hero {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.hero h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.hero p {
+    font-size: 14px;
+    color: #64748b;
+    margin-top: 4px;
+}
+.form-container{
+	margin:0px;
+	display:flex;
+justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+
+}
+
+/* FORM CARD */
+.form-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 800px;
+
+.form-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.form-card-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.back-btn {
+    font-size: 13px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-btn:hover { text-decoration: underline; }
+
+/* FORM */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #334155;
+}
+
+.form-group input {
+    padding: 11px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    color: #0f172a;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+/* ACTIONS */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.cancel-btn {
+    padding: 10px 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #334155;
+    display: inline-block;
+    transition: 0.2s;
+}
+
+.cancel-btn:hover {
+    background: #f1f5f9;
+}
+
+.submit-btn {
+    padding: 10px 22px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover { background: #1d4ed8; }
+
+/* ALERTS */
+.alert {
+    padding: 14px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.alert.error {
+    background: #fee2e2;
+    color: #dc2626;
+}

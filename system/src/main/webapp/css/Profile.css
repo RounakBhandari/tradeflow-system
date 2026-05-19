@@ -6,6 +6,21 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+.profile-value {
+    margin: 4px 0 0 0;
+    font-size: 15px;
+    color: #333;
+    padding: 8px 12px;
+    background: #f5f5f5;
+    border-radius: 6px;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    justify-content: center;
+}
 
 body{
     background: #f4f7fc;

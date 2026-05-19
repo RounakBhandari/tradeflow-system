@@ -66,6 +66,9 @@ public class LoginServlet extends HttpServlet {
 			String role = userDb.getRole();
 			SessionUtil.setAttribute(request, "email", email);
 			SessionUtil.setAttribute(request, "role", role);
+			SessionUtil.setAttribute(request, "firstName", userDb.getFirstName());
+			SessionUtil.setAttribute(request, "lastName", userDb.getLastName());
+			SessionUtil.setAttribute(request, "profilePic", userDb.getProfilePic());
 			CookieUtil.addCookie(response, "role", role, 30 * 60);
 			if ("admin".equalsIgnoreCase(role)) {
                 response.sendRedirect(request.getContextPath() + "/admin/dashboard");
